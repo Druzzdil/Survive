@@ -1,10 +1,13 @@
 import React from 'react';
-import LoginScreen from './Screens/LoginScreen'
-import WelcomeScreen from './Screens/WelcomeScreen'
-import SignupScreen from './Screens/SignupScreen'
-import DrawerNavigator from './Screens/DrawerNavigator'
-import {createStackNavigator}from 'react-navigation'
+import LoginScreen from './Components/Screens/LoginScreen'
+import WelcomeScreen from './Components/Screens/WelcomeScreen'
+import SignupScreen from './Components/Screens/SignupScreen'
+import {createDrawerNavigator}from 'react-navigation'
+import {Provider} from 'react-redux'
 import {StyleSheet} from 'react-native'
+import configureStore from 'Components/Store/config'
+
+const store = configureStore()
 
 export default class App extends React.Component {
 
@@ -15,16 +18,10 @@ export default class App extends React.Component {
   }
 }
 
-const AppNavigator = createStackNavigator({
-    WelcomeScreen: {
-        screen: WelcomeScreen,
-        navigationOptions: {
-            header: null
-        }
-    },
+const AppNavigator = createDrawerNavigator({
+    WelcomeScreen: {screen: WelcomeScreen},
     LoginScreen: { screen: LoginScreen },
     SignupScreen: {screen: SignupScreen},
-    DrawerNavigator: {screen : DrawerNavigator},
 });
 
 const styles = StyleSheet.create({
