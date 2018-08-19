@@ -8,7 +8,7 @@ export default class LoginScreen extends React.Component {
         return (
             <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
                 <Text>This is login screen 00000</Text>
-                    <Button title="Signup login" onPress={()=>this.props.navigation.navigate('SignupScreen')}/>
+                    <Button title="Signup" onPress={()=>this.props.navigation.navigate('SignupScreen')}/>
             </View>
         );
     }

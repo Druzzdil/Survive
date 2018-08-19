@@ -3,20 +3,23 @@ import LoginScreen from './Components/Screens/LoginScreen'
 import WelcomeScreen from './Components/Screens/WelcomeScreen'
 import SignupScreen from './Components/Screens/SignupScreen'
 import {createDrawerNavigator}from 'react-navigation'
+import {StyleSheet} from 'react-native';
 import {Provider} from 'react-redux'
-import {StyleSheet} from 'react-native'
-import configureStore from 'Components/Store/config'
+import configureStore from './Components/Store/config.js'
 
-const store = configureStore()
+const store = configureStore();
+console.log(store, 'STORE')
 
 export default class App extends React.Component {
-
   render() {
     return (
-        <AppNavigator style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}/>
+        <Provider store={store}>
+            <AppNavigator style={styles.container}/>
+        </Provider>
     );
   }
 }
+
 
 const AppNavigator = createDrawerNavigator({
     WelcomeScreen: {screen: WelcomeScreen},
